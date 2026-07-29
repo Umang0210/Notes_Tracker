@@ -16,6 +16,10 @@ connectDB();
 
 // Route files
 const authRoutes = require('./src/routes/authRoutes');
+const noteRoutes = require('./src/routes/noteRoutes');
+const categoryRoutes = require('./src/routes/categoryRoutes');
+const dashboardRoutes = require('./src/routes/dashboardRoutes');
+const uploadRoutes = require('./src/routes/uploadRoutes');
 
 const app = express();
 
@@ -62,6 +66,10 @@ app.use('/api', limiter);
 
 // Mount routers
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/notes', noteRoutes);
+app.use('/api/v1/categories', categoryRoutes);
+app.use('/api/v1/dashboard', dashboardRoutes);
+app.use('/api/v1/uploads', uploadRoutes);
 
 // Root Endpoint
 app.get('/', (req, res) => {
